@@ -48,7 +48,22 @@ public class googleTests {
         assertEquals("(1 + 2) × 3 - 40 ÷ 5", detailsPage.formula.getText());
 
     }
-
+    @Test
+    public void case2() {
+        driver.findElement(By.xpath("//*[@jsname='abcgof']")).click(); //6
+        driver.findElement(By.xpath("//*[@jsname='WxTTNd']")).click(); //деление
+        driver.findElement(By.xpath("//*[@jsname='bkEvMb']")).click(); //0
+        driver.findElement(By.xpath("//*[@jsname='Pt8tGc']")).click(); //=
+        assertEquals("Infinity", detailsPage.result.getText());
+        assertEquals("6 ÷ 0 =", detailsPage.formula.getText());
+    }
+    @Test
+    public void case3() {
+        driver.findElement(By.xpath("//*[@jsname='aN1RFf']")).click(); //sin()
+        driver.findElement(By.xpath("//*[@jsname='Pt8tGc']")).click(); //=
+        assertEquals("Error", detailsPage.result.getText());
+        assertEquals("sin() =", detailsPage.formula.getText());
+    }
     @AfterAll
     public static void teardown() {
         driver.quit();

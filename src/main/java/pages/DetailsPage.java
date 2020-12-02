@@ -18,10 +18,12 @@ public class DetailsPage {
     public DetailsPage(WebDriver driver) {
         initElements(driver, this);
     }
-    public String getResult() {
-        return result.getText();
 
-
+        public String getResult() {
+            return result.getText();
+        }
+        public String getFormula() {
+            return formula.getText();
 
         }
     }
